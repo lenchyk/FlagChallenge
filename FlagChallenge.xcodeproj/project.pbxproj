@@ -8,17 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		BC0829EE2D639FEE00394C57 /* FlagChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0829ED2D639FEE00394C57 /* FlagChallengeApp.swift */; };
-		BC0829F02D639FEE00394C57 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0829EF2D639FEE00394C57 /* ContentView.swift */; };
+		BC0829F02D639FEE00394C57 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0829EF2D639FEE00394C57 /* GameView.swift */; };
 		BC0829F22D639FEF00394C57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC0829F12D639FEF00394C57 /* Assets.xcassets */; };
 		BC0829F52D639FEF00394C57 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC0829F42D639FEF00394C57 /* Preview Assets.xcassets */; };
+		BC0829FF2D63A3E700394C57 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0829FE2D63A3E700394C57 /* GameViewModel.swift */; };
+		BC082A032D63A41800394C57 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC082A022D63A41800394C57 /* Constants.swift */; };
+		BC082A052D63A4C700394C57 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC082A042D63A4C700394C57 /* Country.swift */; };
+		BC082A082D63BFC600394C57 /* FlagGameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC082A072D63BFC600394C57 /* FlagGameService.swift */; };
+		BC082A0A2D63D73400394C57 /* GameStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC082A092D63D73400394C57 /* GameStep.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BC0829EA2D639FEE00394C57 /* FlagChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlagChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC0829ED2D639FEE00394C57 /* FlagChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagChallengeApp.swift; sourceTree = "<group>"; };
-		BC0829EF2D639FEE00394C57 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BC0829EF2D639FEE00394C57 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		BC0829F12D639FEF00394C57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC0829F42D639FEF00394C57 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BC0829FE2D63A3E700394C57 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		BC082A022D63A41800394C57 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BC082A042D63A4C700394C57 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		BC082A072D63BFC600394C57 /* FlagGameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagGameService.swift; sourceTree = "<group>"; };
+		BC082A092D63D73400394C57 /* GameStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStep.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +61,11 @@
 		BC0829EC2D639FEE00394C57 /* FlagChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				BC0829ED2D639FEE00394C57 /* FlagChallengeApp.swift */,
-				BC0829EF2D639FEE00394C57 /* ContentView.swift */,
+				BC082A062D63BFB400394C57 /* Services */,
+				BC082A012D63A40D00394C57 /* Models */,
+				BC082A002D63A40800394C57 /* Helpers */,
+				BC0829FB2D63A18100394C57 /* Application */,
+				BC0829FC2D63A18A00394C57 /* MVVM */,
 				BC0829F12D639FEF00394C57 /* Assets.xcassets */,
 				BC0829F32D639FEF00394C57 /* Preview Content */,
 			);
@@ -65,6 +78,48 @@
 				BC0829F42D639FEF00394C57 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BC0829FB2D63A18100394C57 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BC0829ED2D639FEE00394C57 /* FlagChallengeApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		BC0829FC2D63A18A00394C57 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				BC0829EF2D639FEE00394C57 /* GameView.swift */,
+				BC0829FE2D63A3E700394C57 /* GameViewModel.swift */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		BC082A002D63A40800394C57 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BC082A022D63A41800394C57 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BC082A012D63A40D00394C57 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC082A092D63D73400394C57 /* GameStep.swift */,
+				BC082A042D63A4C700394C57 /* Country.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC082A062D63BFB400394C57 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BC082A072D63BFC600394C57 /* FlagGameService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +192,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC0829F02D639FEE00394C57 /* ContentView.swift in Sources */,
+				BC0829FF2D63A3E700394C57 /* GameViewModel.swift in Sources */,
+				BC082A082D63BFC600394C57 /* FlagGameService.swift in Sources */,
+				BC0829F02D639FEE00394C57 /* GameView.swift in Sources */,
 				BC0829EE2D639FEE00394C57 /* FlagChallengeApp.swift in Sources */,
+				BC082A052D63A4C700394C57 /* Country.swift in Sources */,
+				BC082A0A2D63D73400394C57 /* GameStep.swift in Sources */,
+				BC082A032D63A41800394C57 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
