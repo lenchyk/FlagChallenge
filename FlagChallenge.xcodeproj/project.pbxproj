@@ -63,12 +63,12 @@
 		BC0829EC2D639FEE00394C57 /* FlagChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				BC082A0D2D63F74500394C57 /* Resourses */,
 				BC082A062D63BFB400394C57 /* Services */,
 				BC082A012D63A40D00394C57 /* Models */,
 				BC082A002D63A40800394C57 /* Helpers */,
 				BC0829FB2D63A18100394C57 /* Application */,
 				BC0829FC2D63A18A00394C57 /* Game */,
-				BC0829F12D639FEF00394C57 /* Assets.xcassets */,
 				BC0829F32D639FEF00394C57 /* Preview Content */,
 			);
 			path = FlagChallenge;
@@ -123,6 +123,14 @@
 				BC082A072D63BFC600394C57 /* FlagGameService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		BC082A0D2D63F74500394C57 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				BC0829F12D639FEF00394C57 /* Assets.xcassets */,
+			);
+			path = Resourses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,9 +359,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lenasoroka.FlagChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -380,9 +392,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lenasoroka.FlagChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
