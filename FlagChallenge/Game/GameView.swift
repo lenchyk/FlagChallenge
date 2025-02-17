@@ -30,7 +30,7 @@ struct GameView: View {
     }
     
     // MARK: - Starter Views
-    var starterView: some View {
+    private var starterView: some View {
         VStack(spacing: 48) {
             Text(Common.Text.Start.initialText)
                 .font(.title2)
@@ -51,7 +51,7 @@ struct GameView: View {
         .padding(32)
     }
     
-    var startButton: some View {
+    private var startButton: some View {
         Button {
             withAnimation {
                 viewModel.startGame()
@@ -69,7 +69,7 @@ struct GameView: View {
     }
     
     // MARK: - GameView
-    func gameView(for step: GameStep) -> some View {
+    private func gameView(for step: GameStep) -> some View {
         VStack(spacing: 24) {
             Text(Common.Text.Game.chooseCountry)
                 .font(.headline)
@@ -88,7 +88,7 @@ struct GameView: View {
         }
     }
     
-    func countryOptionButton(with country: Country) -> some View {
+    private func countryOptionButton(with country: Country) -> some View {
         Button(action: { withAnimation { viewModel.choose(country: country) } }) {
             Text(country.name)
                 .font(.callout)
@@ -102,7 +102,7 @@ struct GameView: View {
     }
     
     // MARK: - ToastView
-    var toastView: some View {
+    private var toastView: some View {
         Text(viewModel.toast?.text ?? "")
             .font(.callout)
             .fontWeight(.semibold)

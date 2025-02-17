@@ -12,7 +12,7 @@ protocol FlagGaming {
 }
 
 class FlagGameService: FlagGaming {
-    enum Constants {
+    private enum Constants {
         static let kNumberSteps = 5
         static let kNumberOptions = 3
     }
