@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Constants {    
+enum Common {
     enum Text {
         enum Start {
             static let start = "Start"

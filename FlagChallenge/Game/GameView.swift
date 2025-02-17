@@ -8,39 +8,40 @@
 import SwiftUI
 
 struct GameView: View {
-    var viewModel: GameViewModelProtocol
+    @StateObject private var viewModel: GameViewModel = .init()
     
     var body: some View {
         ZStack {
             starterView
                 .opacity(viewModel.currentGameStep == nil ? 1 : 0)
-                .animation(.spring(), value: viewModel.currentGameStep?.country)
+                .transition(.opacity)
             
             if let gameStep = viewModel.currentGameStep {
                 gameView(for: gameStep)
+                    .transition(.slide)
             }
         }
         .padding()
         .overlay(alignment: .bottom) {
             toastView
-                .opacity(viewModel.toastFeedback != nil ? 1 : 0)
-                .animation(.easeInOut, value: viewModel.toastFeedback)
+                .opacity(viewModel.toast != nil ? 1 : 0)
+                .animation(.easeInOut, value: viewModel.toast?.isCorrect)
         }
     }
     
     // MARK: - Starter Views
     var starterView: some View {
         VStack(spacing: 48) {
-            Text(Constants.Text.Start.initialText)
+            Text(Common.Text.Start.initialText)
                 .font(.title2)
                 .fontWeight(.regular)
                 .multilineTextAlignment(.center)
             
             if !viewModel.isInitialGame {
                 VStack(alignment: .leading) {
-                    Text(Constants.Text.Finish.lastGameResults)
+                    Text(Common.Text.Finish.lastGameResults)
                         .bold()
-                    Text(Constants.Text.Finish.score(viewModel.score))
+                    Text(Common.Text.Finish.score(viewModel.score))
                 }
                 .padding()
             }
@@ -52,9 +53,11 @@ struct GameView: View {
     
     var startButton: some View {
         Button {
-            viewModel.startGame()
+            withAnimation {
+                viewModel.startGame()
+            }
         } label: {
-            Text(Constants.Text.Start.start)
+            Text(Common.Text.Start.start)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundStyle(.black)
@@ -68,13 +71,13 @@ struct GameView: View {
     // MARK: - GameView
     func gameView(for step: GameStep) -> some View {
         VStack(spacing: 24) {
-            Text(Constants.Text.Game.chooseCountry)
+            Text(Common.Text.Game.chooseCountry)
                 .font(.headline)
                 .fontWeight(.medium)
                 .foregroundStyle(.black)
                 .multilineTextAlignment(.leading)
             
-            Text(Country.ukraine.flag)
+            Text(step.country.flag)
                 .font(.largeTitle)
             
             VStack {
@@ -100,18 +103,19 @@ struct GameView: View {
     
     // MARK: - ToastView
     var toastView: some View {
-        Text(viewModel.toastFeedback ?? "")
-            .font(.largeTitle)
-            .fontWeight(.bold)
+        Text(viewModel.toast?.text ?? "")
+            .font(.callout)
+            .fontWeight(.semibold)
             .foregroundStyle(.black)
             .frame(minHeight: 60)
             .frame(maxWidth: .infinity)
-            .background(Color.green)
+            .background(viewModel.toast?.color ?? .gray)
             .cornerRadius(24)
             .padding(.horizontal, 24)
+            .padding(.bottom, -60)
     }
 }
 
 #Preview {
-    GameView(viewModel: GameViewModel())
+    GameView()
 }

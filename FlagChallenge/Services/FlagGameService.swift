@@ -20,7 +20,7 @@ class FlagGameService: FlagGaming {
     func startNewGame() -> [GameStep] {
         var steps: [GameStep]  = []
         
-        for step in 0..<Constants.kNumberSteps {
+        for _ in 0..<Constants.kNumberSteps {
             let options = Country.allCases.shuffled().prefix(Constants.kNumberOptions)
             let randomIndex = Int.random(in: 0...2)
             let country = options[randomIndex]

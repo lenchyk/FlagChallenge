@@ -5,8 +5,6 @@
 //  Created by Lena Soroka on 17.02.2025.
 //
 
-import Foundation
-
 enum Country: String, CaseIterable {
     case andorra
     case albania
@@ -51,7 +49,7 @@ enum Country: String, CaseIterable {
     case wales
     
     var name: String {
-        self.rawValue.uppercased()
+        self.rawValue.capitalized
     }
     
     var flag: String {
